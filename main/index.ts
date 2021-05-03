@@ -1,5 +1,13 @@
 import { Pokemon } from './Pokemon'
+import {playBattle} from "./Battle";
 
-let pokemon = new Pokemon("world", 0);
+async function main() {
+    const pokemon1 = await Pokemon.constructPokemonFromName("eevee");
+    const pokemon2 = await Pokemon.constructPokemonFromName("blastoise");
 
-console.log(pokemon)
+    let winner = await playBattle(pokemon1,pokemon2)
+
+    console.log("winner : " + winner.name)
+}
+
+main()
